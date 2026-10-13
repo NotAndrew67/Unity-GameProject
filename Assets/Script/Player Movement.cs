@@ -32,6 +32,11 @@ void Start()
    
 void OnTriggerEnter2D(Collider2D other)
 {
+    if (other.GetComponent<Item>() != null)
+    {
+        return;
+    }
+
     if (other.CompareTag("Coin"))
     {
         Destroy(other.gameObject);
@@ -39,7 +44,10 @@ void OnTriggerEnter2D(Collider2D other)
         skor++;
         Debug.Log("Skor: " + skor);
 
-        gameManager.AmbilKoin();
+        if (gameManager != null)
+        {
+            gameManager.AmbilKoin();
+        }
     }
 }
 
