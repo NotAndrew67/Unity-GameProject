@@ -104,6 +104,17 @@ public class InventoryManager : MonoBehaviour, GrabableItem
             return;
         }
 
+        // Cek apakah item yang sama sudah ada di slot → stack (tambah quantity)
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            if (itemSlot[i].isFull && itemSlot[i].itemName == item.ItemName)
+            {
+                itemSlot[i].AddQuantity(item.Quantity);
+                return;
+            }
+        }
+
+        // Kalau belum ada, cari slot kosong
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (!itemSlot[i].isFull)

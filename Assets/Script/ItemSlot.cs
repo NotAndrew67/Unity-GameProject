@@ -37,6 +37,17 @@ public class ItemSlot : MonoBehaviour
         itemIcon = item.ItemIcon;
         isFull = true;
 
+        UpdateUI();
+    }
+    
+    public void AddQuantity(int amount)
+    {
+        itemQuantity += amount;
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
         if (quantityText != null)
         {
             quantityText.text = itemQuantity.ToString();
