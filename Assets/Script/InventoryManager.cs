@@ -104,17 +104,17 @@ public class InventoryManager : MonoBehaviour, GrabableItem
             return;
         }
 
-        // Cek apakah item yang sama sudah ada di slot → stack (tambah quantity)
+        // Cek apakah item bisa di-stack di slot yang sudah ada
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (itemSlot[i].isFull && itemSlot[i].itemName == item.ItemName)
+            if (itemSlot[i].CanStackWith(item.ItemName))
             {
                 itemSlot[i].AddQuantity(item.Quantity);
                 return;
             }
         }
 
-        // Kalau belum ada, cari slot kosong
+        // Kalau tidak bisa stack, cari slot kosong
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (!itemSlot[i].isFull)
@@ -125,5 +125,15 @@ public class InventoryManager : MonoBehaviour, GrabableItem
         }
 
         Debug.LogWarning("Inventory is full, '" + item.ItemName + "' was lost.");
+    }
+
+    public void DesselectAllSlot()
+    {
+        foreach (ItemSlot slot in itemSlot)
+        {
+            slot.isItemSelected = false;
+            if (slot.selectedPanel != null)
+                slot.selectedPanel.SetActive(false);
+        }
     }
 }
