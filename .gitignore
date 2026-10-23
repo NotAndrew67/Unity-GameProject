@@ -1,13 +1,40 @@
-Library/
-Temp/
-Obj/
-Build/
-Builds/
-Logs/
-UserSettings/
-MemoryCaptures/
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE / project files (auto-generate ulang)
+.vs/
 .vscode/
+.idea/
 *.csproj
 *.unityproj
 *.sln
 *.slnx
+*.suo
+*.user
+*.pidb
+*.booproj
+
+# Crash / profiler / cache
+sysinfo.txt
+crashlytics-build.properties
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Build output
+*.apk
+*.aab
+*.unitypackage
+
+# OS
+.DS_Store
+Thumbs.db
